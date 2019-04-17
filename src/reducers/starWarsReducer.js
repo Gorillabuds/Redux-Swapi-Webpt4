@@ -1,6 +1,6 @@
 import{FETCHING_CHARS, FETCHING_CHARS_SUCCESS, FETCHING_CHARS_FAILURE} from "../actions";
 const initialState = {
-  characters: []
+  characters: [],
   fetching: false,
   error: null
   // Array characters, Boolean fetching, null error.
