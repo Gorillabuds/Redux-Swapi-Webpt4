@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { CharacterList } from "../components";
 // import actions
 import {fetchChars} from "../actions";
+import{fetchHome} from'../actions';
 
 class CharacterListView extends React.Component {
  
@@ -11,6 +12,7 @@ class CharacterListView extends React.Component {
   componentDidMount() {
     // call our action
     this.props.fetchChars();
+    this.props.fetchHome();
   }
 
   render() {
@@ -32,12 +34,15 @@ const mapStateToProps=state=>{
   console.log('state',state.charsReducer.characters)
   return{
     characters:state.charsReducer.characters,
-    fetching: state.charsReducer.fetching
+    fetching: state.charsReducer.fetching,
+    home:state.homeReducer.homeworld,
+    fetching:state.homeReducer.fetching
   }
 }
 export default connect(
   mapStateToProps,
   {
-    fetchChars
+    fetchChars,
+    fetchHome
   }
 )(CharacterListView);
